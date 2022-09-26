@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title%} Linkdin Filters {% endblock %}
+
+{% block css %}
+
+<style>
+        .ScrollStyle
+{
+    max-height: 860px;
+    overflow-y: scroll;
+}
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<br>
+<form method="POST">
+        <div class="row">
+                
+
+                <div class="col-md-6">
+                        <div class="card w-100">
+                                <div class="card-body">
+                                        <h5 class="card-title">Designation Filters</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                        {% for designation in designations %}                       
+                                        
+                                                <div class="form-group">
+                                                        <div class="form-check">
+                                                                <input class="form-check-input posts_filters" type="checkbox" id="gridCheck_{{designation[0]}}" data-postvalue="{{designation[1]}}" name="posts">
+                                                                <label class="form-check-label" for="gridCheck_{{designation[0]}}">{{designation[1]}}</label>
+                                                        </div>
+                                                </div>  
+                                        {% endfor %}                                      
+
+                                        </p>
+                                </div>
+                        </div>
+                </div>
+
+
+                <!-- --------------------------------------------------------------------------- -->
+
+
+
+                <div class="col-md-6">
+                        <div class="card w-100">
+                                <div class="card-body ScrollStyle">
+                                        <h5 class="card-title">Company Filters</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                        {% for company in companies %}                       
+                                        
+                                                <div class="form-group">
+                                                        <div class="form-check">
+                                                                <input class="form-check-input company_filters" type="radio" id="gridCheck_{{company[1]}}" data-comvalue="{{company[1]}}" name="company_name">
+                                                                <label class="form-check-label" for="gridCheck_{{company[1]}}">{{company[0]}}</label>
+                                                        </div>
+                                                </div>  
+                                        {% endfor %}                                      
+
+                                        </p>
+                                        
+                                </div>
+                        </div>
+                </div>
+                
+
+        </div>
+        
+         
+</form>
+<button class="btn btn-primary" id="btn_linkdin_scrapping">Submit</button>
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='custom_js/main.js') }}"></script>
+{% endblock %}

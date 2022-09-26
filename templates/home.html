@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title%} Home {% endblock %}
+
+{% block css %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<form action="/" method="POST">
+    
+    <div class="form-row">
+      
+      <div class="form-group col-md-4">
+        <label for="inputState">Platform</label>
+        <select id="inputState" class="form-control" name="platform">          
+          <option value="1">Linkdin Profiles</option>
+          <option value="2">Naukri</option>
+          <option value="3">Linkdin Jobs</option>
+        </select>
+      </div>
+      
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock %}
+
+
+
+{% block js %}
+{% endblock %}

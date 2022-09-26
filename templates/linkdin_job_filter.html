@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title%} Linkdin Filters {% endblock %}
+
+{% block css %}
+
+<style>
+        .ScrollStyle
+{
+    max-height: 860px;
+    overflow-y: scroll;
+}
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<br>
+<form method="POST">
+        <div class="row">
+                
+                <div class="col-md-4">
+
+                    <label for="exampleFormControlSelect1">Location</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        {% for location in locations %}
+                        <option value="{{location[0]}}">{{location[1]}}</option>
+                        {% endfor %}
+                    </select>
+
+                   
+                </div>
+
+                <div class="col-md-8">
+
+
+                </div>
+
+        </div>
+        
+         
+</form>
+<button class="btn btn-primary" id="btn_linkdin_job_scrapping">Submit</button>
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='custom_js/main.js') }}"></script>
+{% endblock %}

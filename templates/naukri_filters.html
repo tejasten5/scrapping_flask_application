@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title%} Naukri Filters {% endblock %}
+
+{% block css %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<br>
+<form method="POST">
+        <div class="row">
+                <div class="col-md-4">
+                        <div class="card w-100">
+                                <div class="card-body">
+                                        <h5 class="card-title">Salary Filters</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                        {% for salary in salaries %}                       
+                                        
+                                                <div class="form-group">
+                                                        <div class="form-check">
+                                                                <input class="form-check-input salary_filters" type="checkbox" id="gridCheck_{{salary[0]}}" data-salvalue="{{salary[1]}}" name="salary">
+                                                                <label class="form-check-label" for="gridCheck_{{salary[0]}}">{{salary[1]}}</label>
+                                                        </div>
+                                                </div>  
+                                        {% endfor %}                                      
+
+                                        </p>
+                                        <!-- <a href="#" class="btn btn-primary">Button</a> -->
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+
+                        <div class="card w-150">
+                                <div class="card-body">
+                                        <h5 class="card-title">City Filters</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                                <div class="row">
+                                                        
+                                                        {% for city in cities %}
+                                                                
+                                                                <div class="form-group">
+                                                                        <div class="form-check">
+                                                                                <input class="form-check-input citi_filters" type="checkbox" id="gridCheck_{{city[2]}}" value="{{city[0]}}" data-city="{{city[0]}}" name="naukri_cities">
+                                                                                <label class="form-check-label" for="gridCheck_{{city[2]}}">{{city[1]}}</label>
+                                                                        </div>
+                                                                </div>
+
+                                                        {% endfor %}
+
+                                                
+                                                </div>
+                                        </p>
+                                       
+                                </div>
+                        </div>
+
+
+                </div>
+                <div class="col-md-4">
+                        <div class="card w-100">
+                                <div class="card-body">
+                                        <h5 class="card-title">Industry Type Filters</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                                <div class="row">
+                                                        {% for industry_type in industry_types %}
+                                                                <div class="col-4">
+                                                                        <div class="form-group">
+                                                                                <div class="form-check">
+                                                                                        <input class="form-check-input industry_filter" type="checkbox" id="gridCheck_{{industry_type[0]}}" value="{{industry_type[0]}}" data-industry="{{industry_type[0]}}">
+                                                                                        <label class="form-check-label" for="gridCheck_{{industry_type[0]}}">
+                                                                                                {{industry_type[1]}}
+                                                                                        </label>
+                                                                                </div>
+                                                                        </div>
+                                                                        
+
+                                                                </div>
+                                                        {% endfor %}
+                                                                
+                                                                
+
+
+                                                </div>
+
+                                        </p>
+                                        
+                                </div>
+                        </div>
+
+                </div>
+
+        </div>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter programming language...">
+         
+</form>
+<button class="btn btn-primary" id="btn_naukri_scrapping">Submit</button>
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='custom_js/main.js') }}"></script>
+{% endblock %}

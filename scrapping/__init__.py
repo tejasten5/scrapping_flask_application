@@ -1,0 +1,2 @@
+from .naukri_scrapping import ScrapNaukriJobs
+from .scrap_linkdin_profiles import ScrapLinkdinJobs
