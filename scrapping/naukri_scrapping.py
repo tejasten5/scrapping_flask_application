@@ -62,18 +62,18 @@ class ScrapNaukriJobs(CSVHeaders):
 
     def __init__(self,language,ctc_string,city_string,industry_string):
         print(
-            """                                         ________  ________     |
-                |\    |       /\      |        | |  /  |        |    |         |
-                | \   |      /  \     |        | | /   |________|    |         |
-                |  \  |     / -- \    |        | |/    |\            |         |
-                |   \ |    /      \   |        | |\    | \           |         |
-                |    \|   /        \  |________| | \   |  \       ___|_____    |
-            ___________________________________________________________________|____________________
+            """                                         ________  ________     
+                |\    |       /\      |        | |  /  |        |    |         
+                | \   |      /  \     |        | | /   |________|    |         
+                |  \  |     / -- \    |        | |/    |\            |         
+                |   \ |    /      \   |        | |\    | \           |         
+                |    \|   /        \  |________| | \   |  \       ___|____    
+            ___________________________________________________________________
             """
 
         )
         options = webdriver.ChromeOptions()
-        options.add_argument('headless')
+        options.add_argument('--headless')
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--incognito')
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
